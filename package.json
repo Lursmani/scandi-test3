@@ -31,7 +31,8 @@
         ]
     },
     "eslintConfig": {
-        "extends": "@scandipwa"
+        "extends": "@scandipwa",
+        "ignorePatterns": ["src/"]
     },
     "proxy": "https://40kskudemo.scandipwa.com/"
 }

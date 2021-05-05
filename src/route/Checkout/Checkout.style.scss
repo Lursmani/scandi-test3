@@ -1,0 +1,343 @@
+/**
+ * ScandiPWA - Progressive Web App for Magento
+ *
+ * Copyright © Scandiweb, Inc. All rights reserved.
+ * See LICENSE for license details.
+ *
+ * @license OSL-3.0 (Open Software License ("OSL") v. 3.0)
+ * @package scandipwa/base-theme
+ * @link https://github.com/scandipwa/base-theme
+ */
+
+:root {
+  --checkout-max-width: 1100px;
+}
+
+.Checkout {
+  padding-bottom: var(--header-nav-height);
+
+  @include desktop {
+    margin-top: var(--header-total-height);
+  }
+
+  @include before-desktop {
+    padding-bottom: calc(var(--navigation-tabs-height) + 113px);
+    padding-top: 2rem;
+  }
+
+  &::before {
+    @include after-mobile {
+      content: "";
+      background: var(--breadcrumbs-background);
+      min-height: var(--breadcrumbs-height);
+      display: block;
+    }
+  }
+
+  &-StickyButtonWrapper {
+    @include before-desktop {
+      border-top: 1px solid var(--primary-divider-color);
+      background-color: #fff;
+      position: fixed;
+      padding: 1.2rem 1.2rem calc(env(safe-area-inset-bottom) + 1.2rem);
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      z-index: 85;
+    }
+
+    @include mobile {
+      background-color: var(--secondary-base-color);
+      padding: 1.4rem 1.4rem calc(env(safe-area-inset-bottom) + 1.4rem);
+    }
+
+    .Button {
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+
+  &-Wrapper {
+    max-width: var(--checkout-max-width);
+
+    @include after-mobile {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(calc(50% - 1.2rem), 470px));
+      grid-template-rows: auto auto;
+      grid-gap: 2.4rem;
+    }
+  }
+
+  &-Heading {
+    text-transform: none;
+    font-weight: 400;
+    font-size: 2rem;
+    margin: 0 0 1.2rem;
+
+    @include mobile {
+      margin: 0 0 1.4rem;
+    }
+  }
+
+  &-Title {
+    text-transform: capitalize;
+    margin: 2.4rem 0;
+
+    @include mobile {
+      margin: 2.8rem 0;
+      display: none;
+    }
+  }
+
+  &-Coupon {
+    @include desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &-OrderTotal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding-bottom: 1.4rem;
+
+    @include after-mobile {
+      display: none;
+    }
+  }
+
+  .Checkout-ExpandableContentContent {
+    margin-top: 0;
+  }
+}
+.pbar-outer-container {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  width: 100%;
+  grid-template-columns: 30vw 5vw 30vw 5vw 30vw;
+  padding: 1em 0 1em 0;
+}
+.pbar-text-container {
+  display: grid;
+  grid-row: 2/3;
+  grid-column: 1/6;
+  height: auto;
+  width: 100%;
+  grid-template-columns: 30vw 5vw 30vw 5vw 30vw;
+  align-items: center;
+  text-align: center;
+  justify-items: center;
+}
+.pbar-container {
+  display: grid;
+  grid-column: 1/2;
+  grid-column: 1/6;
+  height: auto;
+  width: 100%;
+  grid-template-columns: 30vw 5vw 30vw 5vw 30vw;
+  align-items: center;
+  justify-items: center;
+}
+
+.pbar-1 {
+  height: 5px;
+  grid-column: 1/2;
+  background: linear-gradient(
+    to right,
+    var(--primary-base-color) 50%,
+    lightgray 0
+  );
+  background-size: 200% 100%;
+  background-position: right;
+  width: 90%;
+  animation: fadeNext 1.5s 0.5s forwards;
+}
+.pbar-1-over {
+  height: 5px;
+  grid-column: 1/2;
+  background-color: var(--primary-base-color);
+  width: 90%;
+}
+.pbar-2-container {
+  display: grid;
+  grid-column: 2/3;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+.pbar-4-container {
+  display: grid;
+  grid-column: 4/5;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  grid-template-rows: 1fr 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  min-width: 0;
+}
+.pbar-2 {
+  grid-column: 2/3;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  background: lightgray;
+  animation: colorChange 0.5s 2s forwards;
+}
+.pbar-2-over {
+  grid-column: 2/3;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  background: var(--primary-base-color);
+}
+.pbar-3 {
+  height: 5px;
+  grid-column: 3/4;
+  width: 90%;
+  background: lightgray;
+}
+
+.pbar-3-compl {
+  height: 5px;
+  grid-column: 3/4;
+  background: linear-gradient(
+    to right,
+    var(--primary-base-color) 50%,
+    lightgray 0
+  );
+  background-size: 200% 100%;
+  background-position: right;
+  width: 90%;
+  animation: fadeNext 1.5s 0.2s forwards;
+}
+
+.pbar-3-over {
+  height: 5px;
+  grid-column: 3/4;
+  background: var(--primary-base-color);
+  width: 90%;
+}
+
+@keyframes fadeNext {
+  100% {
+    background-position: left;
+  }
+}
+@keyframes colorChange {
+  from {
+    background: lightgray;
+  }
+  to {
+    background: var(--primary-base-color);
+  }
+}
+
+.pbar-4 {
+  grid-column: 4/5;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  background: lightgray;
+}
+
+.pbar-4-compl {
+  grid-column: 4/5;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  background: lightgray;
+  animation: colorChange 0.5s 2s forwards;
+}
+.pbar-4-over {
+  grid-column: 4/5;
+  width: 4vw;
+  height: 4vw;
+  border-radius: 50%;
+  background: var(--primary-base-color);
+}
+.pbar-5 {
+  height: 5px;
+  grid-column: 5/6;
+  background-color: lightgray;
+  width: 90%;
+}
+.pbar-5-compl {
+  height: 5px;
+  grid-column: 5/6;
+  background: linear-gradient(
+    to right,
+    var(--primary-base-color) 50%,
+    lightgray 0
+  );
+  background-size: 200% 100%;
+  background-position: right;
+  width: 90%;
+  animation: fadeNext 1.5s 0.2s forwards;
+}
+
+.pbar-text1 {
+  grid-column: 2/3;
+  margin: 0;
+  padding: 0;
+  font-weight: bolder;
+}
+.pbar-text2 {
+  grid-column: 4/5;
+  margin: 0;
+  padding: 0;
+  font-weight: bolder;
+}
+.circle-text {
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+.circle-text-full {
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px #252424;
+}
+@media only screen and (max-width: 768px) {
+  .pbar-1,
+  .pbar-1-over,
+  .pbar-3,
+  .pbar-3-compl,
+  .pbar-3-over,
+  .pbar-5,
+  .pbar-5-compl {
+    width: 80%;
+  }
+  .pbar-2,
+  .pbar-2-over,
+  .pbar-4,
+  .pbar-4-compl,
+  .pbar-4-over {
+    width: 7vw;
+    height: 7vw;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .pbar-2,
+  .pbar-2-over,
+  .pbar-4,
+  .pbar-4-compl,
+  .pbar-4-over {
+    width: 9vw;
+    height: 9vw;
+  }
+}
